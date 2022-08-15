@@ -1,0 +1,364 @@
+@import "../../../theme/fonts.scss";
+
+ion-toolbar {
+  --background: linear-gradient(180deg ,#05796d ,#059f8f,#03776c);// #02766a;
+  --min-height: 50px !important;
+  border: 1px solid black;
+}
+ion-content{
+
+  --background:#0b9875;
+  --overflow: hidden;
+     .links{
+      margin-left: 10%;
+      margin-top: 3%;
+      display: inline-flex;
+      img{
+        height: 6vh;
+        margin-left: 1vh;
+      }
+     }
+     .buttonPanel{
+      color: white;
+      font-family: "BRLNSDB";
+      border-radius: 5px;
+        width: 80%;
+        margin-left: 10%;
+        background: rgba($color: #02766a, $alpha: 0.6);
+        border: 1px solid white;
+        display: inline-block;
+        span{
+            text-align: center;
+             img
+            {
+              margin-top: 20px;
+                height: 3vh;
+            }
+        }
+        .twoline,.twoline1{
+            display: flex;
+        }
+        .twoline1{
+          margin-bottom: 1vh;
+        }
+        .loginBtn{
+            width: 40%;
+            margin-bottom: 5%;
+            margin-left: 30%;
+            background: url("../../../assets/img/boton_verde_rect.png");
+        }
+        .loginBtn:active{
+          background: url("../../../assets/img/boton_verde_rect_press.png") ;
+          background-size: 100% 100%;
+        }
+        .ytext{
+          margin-left: 20%;
+        }
+        .ytext1{
+          margin-left: 30%;
+        }
+        .removeBtn:active,.settingBtn:active,.rateBtn:active{
+          background: url("../../../assets/img/boton_azul_rect_press.png");
+          background-size: 100% 100%;
+        }
+        .removeBtn{
+            width: 40%;
+            margin-left: 30%;
+            margin-bottom: 5%;
+            background: url("../../../assets/img/boton_azul_rect.png");
+        }
+        .settingBtn{
+            width: 40%;
+            margin-left: 7%;
+            background: url("../../../assets/img/boton_azul_rect.png");
+        }
+        .shareBtn{
+            width: 40%;
+            margin-left: 6%;
+            background: url("../../../assets/img/byellow.png");
+        }
+        .rateBtn{
+            width: 40%;
+            margin-left: 7%;
+            background: url("../../../assets/img/boton_azul_rect.png");
+        }
+        .otherBtn{
+            width: 40%;
+            margin-left: 6%;
+            background: url("../../../assets/img/byellow.png");
+        }
+        .shareBtn:active,.otherBtn:active{
+          background: url("../../../assets/img/byellow_press.png");
+          background-size: 100% 100%;
+        }
+        .loginBtn,.removeBtn,.settingBtn,.shareBtn,.rateBtn,.otherBtn{
+          margin-top: 2vh;
+            text-align: center;
+            padding: 2vh 0;
+            font-size: 15px;
+            color: white;
+            font-weight: 1000;
+            background-size: 100% 100%;
+            height: 8vh;
+            text-shadow: 2px 2px 1px rgba($color: #000000, $alpha: 0.8);
+        }
+     }
+     .userInfo{
+        margin-left: 15%;
+        margin-top: 10%;
+        display: inline-flex;
+        font-family: "BRLNSDB";
+        .avatarImg{
+            background: rgba($color: rgb(212, 236, 186), $alpha: 1.0);
+            width: 10vh;
+            height: 10vh;
+            border: 1px solid black;
+            img{
+                height: 100%;
+            }
+
+        }
+        .username{
+            text-align: center;
+            text-overflow: clip;
+            border: 1px solid white;
+            font-size: 4vh;
+            width: 25vh;
+            color: white;
+           background: rgba($color: #02766a, $alpha: 0.6);
+            .inputText{
+              margin-top: 1.5vh;
+              ion-input{
+                --ion-font-family:"BRLNSDB";
+              }
+            }
+
+        }
+     }
+
+ }
+
+
+.logo{
+  text-align:center;
+  max-width:350px;
+  margin-left:6% ;
+  display: inline-flex;
+  span{
+    font-family: "MAIANB";
+    margin-left: 5%;
+    letter-spacing: 0.1em;
+    text-shadow: 2px 2px 1px rgba($color: #000000, $alpha: 0.8);
+  }
+  img{
+    margin: auto;
+    max-height: 35px;
+  }
+  .ludo{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  font-size:40px;
+  color: #f0fbcf;
+  // -webkit-text-stroke: 1px #FFA500;
+  -webkit-text-stroke: 1px;
+  text-decoration-color: black;
+  font-weight:bold;
+  font-family: "BRLNSDB";
+  width: 250px;
+}
+
+}
+
+.content{
+  img{
+    opacity: 0.8;
+    margin-left: 15%;
+    width: 70%;
+    margin-top: 5%;
+  }
+  .wrapper{
+  $primary-blue: #0080FF;
+  $light-grey:#F3F6F9;
+  $dark-grey:#303336;
+  $red:#FF3149;
+  $green:#00D074;
+  $orange:#FFB000;
+  $fatty:'Chewy';
+  $fancy:'Fredoka One';
+  $modern:'Rubik';
+  margin-top:50px;
+  font-family: 'Varela Round';
+
+  }
+
+}
+
+ion-footer{
+  --min-height: 6vh !important;
+
+}
+.tabcontainer{
+  display: flex;
+  background: rgba($color: #000000, $alpha: 0);
+}
+.tab1,.tab2,.tab3{
+  background: linear-gradient(180deg,#03998a ,#025b52 );
+}
+.tab1 {
+  margin-left: -5%;
+  width: 44%;
+  height: 8vh;
+  margin-top: 2vh;
+  align-items: center;
+  border: 1px solid black;
+  img {
+    margin: auto;
+    height: 70%;
+    margin-left: 40%;
+    margin-top: 5%;
+  }
+}
+
+.tab2 {
+  margin-left: -1%;
+  margin-bottom: -10px;
+  width: 40%;
+  height: 10vh;
+  // margin-bottom: 0px;
+  z-index: 10;
+  border: 1px solid black;
+  border-radius: 2vh 2vh 0 0;
+  img {
+    margin: auto;
+    height: 70%;
+    margin-left: 35%;
+    margin-top: 7%;
+  }
+}
+.tab3 {
+  margin-left: -1%;
+  width: 40%;
+  height: 8vh;
+  margin-top: 2vh;
+
+  border: 1px solid black;
+  img {
+    margin: auto;
+    height: 70%;
+    margin-left: 35%;
+    margin-top: 5%;
+  }
+}
+.path1{
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: #0ab68b;
+}
+.pathContainer{
+  z-index: -1;
+}
+// cdk-virtual-scroll-viewport {
+//   height: 100%;
+//   width: 100%;
+// }
+.wrapper{
+
+  border: 2px solid black;
+  border-radius: 1vh;
+  cdk-virtual-scroll-viewport{
+    width: 60vw;
+    margin: auto;
+    height: 40vh;
+    margin-bottom: 2vh;
+    background-image: url('../../../assets/img/mosaico.png');
+    background-size: 100% 100%;
+    .itemslist{
+      width: 60vw;
+      height: fit-content;
+      display: flex;
+      flex-direction: row;
+      .items{
+        display: inline-flex;
+        // margin-bottom: 0vh;
+        .check{
+          position: absolute;
+          width: 6vw;
+          height: 6vw;
+          margin-left: 1vw;
+          margin-top: 1vh;
+        }
+      }
+      .item{
+        border: 1px solid black;
+        // border-left: 1px solid black;
+        // border-left: 1px solid black;
+        width: 20vw;
+        height: 20vw;
+      }
+    }
+
+  }
+  .title1{
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    font-size: 3vh;
+    font-weight: 600;
+  font-family: "BRLNSDB";
+
+  }
+  .title{
+    text-align: center;
+    margin-top: 2vh;
+    font-size: 3vh;
+    font-weight: 600;
+  font-family: "BRLNSDB";
+
+  }
+  img{
+    width: 8vh;
+    height: 8vh;
+    margin: auto;
+    margin-left: 25vw;
+    margin-top: 3vh;
+  }
+}
+ion-modal#example-modal {
+  --ion-font-family:"BRLNSDB";
+  --border: 1px solid black;
+  // --width: fit-content;
+  --width: 70%;
+  --height: fit-content;
+  --border-radius: 1vh;
+  --background: #027d71;
+}
+
+.enterBtn,.registerBtn,.musicBtn,.soundBtn,.colorBtn{
+  color: white;
+  padding: 1.5vh;
+  font-size: 3vh;
+  text-align: center;
+  font-family: "BRLNSDB";
+  text-shadow: 2px 2px 1px rgba($color: #000000, $alpha: 0.8);
+  margin: auto;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  background: url("../../../assets/img/boton_verde_rect.png");
+  background-size: 100% 100%;
+  width: 60%;
+  height: 7.5vh;
+  margin-bottom: 1vh;
+}
+.enterBtn:active,.registerBtn:active,.musicBtn:active,.soundBtn:active,.colorBtn:active{
+  background: url("../../../assets/img/boton_verde_rect_press.png");
+  background-size: 100% 100%;
+}
+.musicBtn,.soundBtn,.colorBtn{
+  font-size: 3vh;
+  padding: 1.5vh;
+  margin-top: 1vh;
+  font-family: "BRLNSDB";
+  margin-bottom: 2vh;
+}

@@ -1,0 +1,26 @@
+<ion-grid id="rows">
+  <ion-row style="width: max-content; height: 105px; overflow-y: hidden;">
+    <ion-col  *ngFor="let col of tableService.tableData;let i = index">
+      <h2 style="font-size: 15px;width: 15px;" #anchor *ngFor="let item of col;let j=index" (click)="changeColor(item,j,i)" 
+      [ngClass]="{
+        'head':(item==p && p_c=='blue')||(item==b && b_c=='blue'),
+        'tail':(item==p && p_c=='red'||(item==b && b_c=='red')), 
+        'color1':(item==p && p_c=='yellow')||(item==b && b_c=='yellow'),
+        'color2':(item==p && p_c=='green')||(item==b && b_c=='green'),
+        'color3':(item==p && p_c=='orange')||(item==b && b_c=='orange')}"
+      >{{item}}</h2>
+    </ion-col>
+  </ion-row>
+  <ion-row style="width: max-content; height: 105px; overflow-y: hidden;">
+    <ion-col  *ngFor="let col of tableService.tblOddEvenData;let i = index;">
+      <h2 style="font-size: 15px;width: 15px;" #anchor *ngFor="let item of col;let j=index"
+      [ngClass]="{
+        'head':(item%2===0 && p_c=='blue')||(item%2===1 && b_c=='blue'),
+        'tail':(item%2===0 && p_c=='red'||(item%2===1 && b_c=='red')), 
+        'color1':(item%2===0 && p_c=='yellow')||(item%2===1 && b_c=='yellow'),
+        'color2':(item%2===0 && p_c=='green')||(item%2===1 && b_c=='green'),
+        'color3':(item%2===0 && p_c=='orange')||(item%2===1 && b_c=='orange')}"
+      >{{item%2===0?'E':'O'}}</h2>
+    </ion-col>
+  </ion-row>
+</ion-grid>

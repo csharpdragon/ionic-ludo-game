@@ -1,0 +1,225 @@
+@import "../../../theme/fonts.scss";
+
+ion-toolbar {
+  --background: linear-gradient(180deg, #05796d, #059f8f, #03776c); // #02766a;
+  --min-height: 50px !important;
+  div {
+    width: 100%;
+    display: inline-flex;
+  }
+  .avatarImg {
+    width: 13vw;
+    margin-top: 1vw;
+    margin-left: 3vw;
+  }
+  .closeImg {
+    width: 10vw;
+    height: 90%;
+    margin-top: 3%;
+    margin-right: 1vw;
+    background: url('../../../assets/img/boton_cerrar.png');
+  }
+  // .closeImg:active {
+  //   src: url("../../../assets/img/boton_cerrar_press.png");
+  // }
+  span {
+    color: white;
+    width: 70%;
+    font-size: 5vh;
+    font-weight: 800;
+    margin-top: 1vw;
+    margin-left: 4%;
+    text-shadow: 2px 2px 1px rgba($color: #000000, $alpha: 0.8);
+  }
+}
+ion-content {
+  --ion-font-family: "BRLNSDB";
+
+  --overflow: hidden;
+}
+.rooms {
+  background: url("../../../assets/img/madero.png") center center;
+  background-size: 100% 50%;
+
+  height: 100%;
+  .roomHeader {
+    width: 100%;
+    height: 6%;
+    text-align: center;
+    padding-top: 2%;
+    background: linear-gradient(#0cad85, #0a906e);
+    border: 1px solid black;
+  }
+  .roomsContent {
+    width: 100%;
+    height: 50%;
+    background: rgb(193, 106, 106);
+  }
+  .bottomLists {
+    display: inline-flex;
+    width: 100%;
+    height: 30%;
+
+    .leftList {
+      width: 65%;
+      height: 95%;
+      margin-top: 1%;
+      margin-left: 1.25%;
+      background: url("../../../assets/img/mosaico.png");
+      border: 1px solid black;
+      .list2 {
+        width: 100%;
+        height: 100%;
+      }
+      .leftitem {
+        border: 1px solid black;
+        width: 100%;
+        height: 20%;
+        padding-top: 1%;
+        padding-bottom: -1%;
+        display: inline-flex;
+        .leftAvatar {
+          height: 100%;
+          width: 15%;
+          img {
+            height: 100%;
+          }
+        }
+        .leftText {
+          width: 70%;
+          height: 100%;
+          color: black;
+
+          .topText {
+            font-size: 2vh;
+            font-weight: 800;
+            height: 100%;
+          }
+          .bottomText {
+            font-size: 2vh;
+            height: 100%;
+          }
+        }
+      }
+    }
+    .rightList {
+      width: 30%;
+      height: 95%;
+      margin-top: 1%;
+      margin-left: 1.25%;
+      border: 1px solid black;
+      background: url("../../../assets/img/mosaico.png");
+      .list3 {
+        width: 100%;
+        height: 100%;
+
+        .rightItem {
+          margin-top: -0.6vh;
+          border: 1px solid black;
+          width: 100%;
+          display: inline-flex;
+          height: 5vh;
+          img {
+            margin-top: 0.2vh;
+            height: 4.6vh;
+            margin-bottom: 0.2vh;
+          }
+          span {
+            margin-top: 1vh;
+            font-size: 2vh;
+            color: black;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+  .sendContent {
+    width: 90%;
+    margin-left: 2%;
+    display: inline-flex;
+    .inputmessage {
+      width: 70%;
+      background: rgb(184, 177, 177);
+      font-size: 5vh;
+      background-color: #fff;
+      color: gray;
+      ion-input {
+      }
+    }
+    .sendBtn {
+      background: url("../../../assets/img/bgray.png");
+      background-size: 100% 100%;
+      width: 35%;
+      text-align: center;
+      padding-top: 1vh;
+      font-size: 4vh;
+      font-weight: 800;
+      color: rgb(23, 23, 23);
+      margin-left: 2.5%;
+      // width: 25%;
+      margin-left: 5%;
+      height: 10vh;
+    }
+    .sendBtn:active{
+
+      background-size: 100% 100%;
+    }
+  }
+}
+
+.list1 {
+  width: 100%;
+  height: 100%;
+  .items {
+    height: 18vh;
+  }
+  // margin-top: 0px;
+  .eachroom {
+    width: 100%;
+    height: 15vh;
+    background: linear-gradient(#07ac9c, #056c62);
+    border: 1px solid black;
+    .roomEnteredUser {
+      display: inline-flex;
+      width: 50%;
+      height: 50%;
+      .relatedAvatar {
+        height: 97%;
+        width: 30%;
+        img {
+          height: 100%;
+        }
+        margin-bottom: 0.5vh;
+      }
+      .relatedText {
+        margin-top: 3%;
+        width: 70%;
+        height: 100%;
+        font-weight: 500;
+        font-size: 2vh;
+        color: white;
+        .relatedName {
+          width: 100%;
+          height: 50%;
+          font-weight: 800;
+        }
+        .relatedMessage {
+          width: 100%;
+          height: 50%;
+        }
+      }
+    }
+  }
+  .bottom {
+    width: 100%;
+    height: 3vh;
+    border: 1px solid black;
+    background: #056c62;
+    display: inline-flex;
+    img {
+      height: 100%;
+      margin-left: 15%;
+    }
+  }
+}

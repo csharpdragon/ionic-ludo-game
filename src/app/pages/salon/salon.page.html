@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar>
+    <div>
+      <img class="avatarImg" src={{avatarUrl}}/>
+      <span>{{userName}}</span>
+      <div class="closeImg">
+
+      </div>
+      <!-- <img href="#" routerLink="/main" class="closeImg" src="../../../assets/img/boton_cerrar.png"/> -->
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="rooms">
+    <div class="roomHeader">Room available - 2 online</div>
+    <div class="roomsContent">
+      <cdk-virtual-scroll-viewport class="list1" itemSize="2" minBufferPx="500" maxBufferPx="500">
+        <div class="items" *cdkVirtualFor="let item of numSequence(10);let i=index">
+          <div class="eachroom">
+            <div class="roomEnteredUser">
+              <div class="relatedAvatar">
+               <img src="../../../assets/img/sombra.png"/>
+              </div>
+              <div class="relatedText">
+                <div class="relatedName">
+                  Brute
+                </div>
+                <div class="relatedMessage">
+                  Hello
+                </div>
+              </div>
+            </div>
+
+            <div class="roomEnteredUser">
+              <div class="relatedAvatar">
+               <img src="../../../assets/img/sombra.png"/>
+              </div>
+              <div class="relatedText">
+                <div class="relatedName">
+                  Brute
+                </div>
+                <div class="relatedMessage">
+                  Hello
+                </div>
+              </div>
+            </div>
+            <div class="roomEnteredUser">
+              <div class="relatedAvatar">
+               <img src="../../../assets/img/sombra.png"/>
+              </div>
+              <div class="relatedText">
+                <div class="relatedName">
+                  Brute
+                </div>
+                <div class="relatedMessage">
+                  Hello
+                </div>
+              </div>
+            </div>
+            <div class="roomEnteredUser">
+              <div class="relatedAvatar">
+               <img src="../../../assets/img/sombra.png"/>
+              </div>
+              <div class="relatedText">
+                <div class="relatedName">
+                  Brute
+                </div>
+                <div class="relatedMessage">
+                  Hello
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <img class="userimg" src="../../../assets/img/tab_user_select.png"/>
+            <span>*4</span>
+            <img class="botimg" src="../../../assets/img/robot.png"/>
+            <span>*4</span>
+            <img class="coinimg" src="../../../assets/img/limite.png"/>
+            <span>*4</span>
+          </div>
+        </div>
+      </cdk-virtual-scroll-viewport>
+    </div>
+    <div class="bottomLists">
+
+      <div class="leftList">
+        <cdk-virtual-scroll-viewport class="list2" itemSize="2" minBufferPx="500" maxBufferPx="500">
+          <div class="leftitem" *cdkVirtualFor="let item of numSequence(10);let i=index">
+            <div class="leftAvatar">
+              <img src="../../../assets/img/avatars/avatar_160.png"/>
+            </div>
+            <div class="leftText">
+              <div class="topText">Angel</div>
+              <div class="bottomText">Hello</div>
+            </div>
+          </div>
+        </cdk-virtual-scroll-viewport>
+      </div>
+      <div class="rightList">
+        <cdk-virtual-scroll-viewport class="list3" itemSize="2" >
+          <div class="rightItem" *cdkVirtualFor="let item of numSequence(10);let i=index">
+            <img src="../../../assets/img/avatars/avatar_107.png"/>
+            <span>Angel</span>
+          </div>
+        </cdk-virtual-scroll-viewport>
+      </div>
+
+    </div>
+    <div class="sendContent">
+      <div class="inputmessage">
+        <ion-input placeholder="Message" [multiple]="true"></ion-input>
+      </div>
+      <div class="sendBtn" (click)="onSendBtn()">Send</div>
+    </div>
+
+  </div>
+</ion-content>

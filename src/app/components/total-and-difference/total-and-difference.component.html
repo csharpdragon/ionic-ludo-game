@@ -1,0 +1,147 @@
+<section>
+  <ion-grid style="margin-bottom: 10px;">
+    <ion-row class="streak-row">
+      <ion-col size="4" class="title">
+        <span [ngClass]="{'yellow':p_c=='yellow','blue':p_c=='blue', 'red': p_c=='red', 'orange':p_c=='orange','green':p_c=='green'}" >{{p_c}} <span>streak</span> </span>
+      </ion-col>
+      <ion-col size="8" style="padding: 0px !important">
+        <div class="red streak">
+         
+          <ion-grid >
+            <ion-row [ngClass]='(tableservice.blinktextflagP==true && p_c=="blue")?"blink_meP ":(tableservice.blinktextflagP==true && p_c=="green")?"blink_green ":(tableservice.blinktextflagP==true && p_c=="yellow")?"blink_yellow":(tableservice.blinktextflagP==true && p_c=="orange")?"blink_orange":(tableservice.blinktextflagP==true && p_c=="red")?"blink_meB":"default"'>
+              <ion-col>{{redStreak[1]}}</ion-col>
+              <ion-col>{{redStreak[2]}}</ion-col>
+              <ion-col>{{redStreak[3]}}</ion-col>
+              <ion-col>{{redStreak[4]}}</ion-col>
+              <ion-col>{{redStreak[5]}}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="streak-row">
+      <ion-col size="4" class="title">
+        <span [ngClass]="{'yellow':b_c=='yellow','blue':b_c=='blue', 'red': b_c=='red', 'orange':b_c=='orange','green':b_c=='green'}" >{{b_c}} <span>streak</span> </span>
+      </ion-col>
+      <ion-col size="8" style="padding: 0px !important">
+        <div class="blue streak">
+         <ion-grid >
+            <ion-row [ngClass]='(tableservice.blinktextflagB==true && b_c=="blue")?"blink_mepP ":(tableservice.blinktextflagB==true && b_c=="green")?"blink_green ":(tableservice.blinktextflagB==true && b_c=="yellow")?"blink_yellow":(tableservice.blinktextflagB==true && b_c=="orange")?"blink_orange":(tableservice.blinktextflagB==true && b_c=="red")?"blink_meB":"default"'>
+              <ion-col>{{blueStreak[1]}}</ion-col>
+              <ion-col>{{blueStreak[2]}}</ion-col>
+              <ion-col>{{blueStreak[3]}}</ion-col>
+              <ion-col>{{blueStreak[4]}}</ion-col>
+              <ion-col>{{blueStreak[5]}}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="streak-row">
+      <ion-col size="4">
+        <span class="title" [ngClass]="{'yellow':p_c=='yellow','blue':p_c=='blue', 'red': p_c=='red', 'orange':p_c=='orange','green':p_c=='green'}" >Even <span>Streak</span> </span>
+      </ion-col>
+      <ion-col size="8" style="padding: 0px !important">
+        <div class="red streak">
+          <ion-grid >
+            <ion-row [ngClass]='(tableservice.blinktextflagE==true && p_c=="blue")?"blink_meP ":(tableservice.blinktextflagE==true && p_c=="green")?"blink_green ":(tableservice.blinktextflagE==true && p_c=="yellow")?"blink_yellow":(tableservice.blinktextflagE==true && p_c=="orange")?"blink_orange":(tableservice.blinktextflagE==true && p_c=="red")?"blink_meB":"default"'>
+              <ion-col>{{evenStreak[1]}}</ion-col>
+              <ion-col>{{evenStreak[2]}}</ion-col>
+              <ion-col>{{evenStreak[3]}}</ion-col>
+              <ion-col>{{evenStreak[4]}}</ion-col>
+              <ion-col>{{evenStreak[5]}}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="streak-row">
+      <ion-col size="4" class="title">
+        <span [ngClass]="{'yellow':b_c=='yellow','blue':b_c=='blue', 'red': b_c=='red', 'orange':b_c=='orange','green':b_c=='green'}" >Odd <span>Streak</span> </span></ion-col>
+      <ion-col size="8" style="padding: 0px !important">
+        <div class="blue streak">
+          <ion-grid >
+            <ion-row [ngClass]='(tableservice.blinktextflagO==true && b_c=="blue")?"blink_mepP ":(tableservice.blinktextflagO==true && b_c=="green")?"blink_green ":(tableservice.blinktextflagO==true && b_c=="yellow")?"blink_yellow":(tableservice.blinktextflagO==true && b_c=="orange")?"blink_orange":(tableservice.blinktextflagO==true && b_c=="red")?"blink_meB":"default"'>
+              <ion-col>{{oddStreak[1]}}</ion-col>
+              <ion-col>{{oddStreak[2]}}</ion-col>
+              <ion-col>{{oddStreak[3]}}</ion-col>
+              <ion-col>{{oddStreak[4]}}</ion-col>
+              <ion-col>{{oddStreak[5]}}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-col>
+    </ion-row>
+        <!-- <ion-row>
+          <ion-col size="6">
+            <ul *ngFor="let percent of ['70', '60', '50']">
+              <li *ngIf="percent !== '70'">&nbsp;&nbsp;&nbsp;difference of {{calculatePercentageDiff(percent)}}%</li>
+              <br *ngIf="percent !== '70'">
+              <li><b>{{percent}}% : </b><span>&nbsp;{{cleanPresentation ? cleanPresentation[percent].length : 0}}&nbsp;total</span></li>
+            </ul>
+          </ion-col>
+          <ion-col>
+            <ul *ngFor="let percent of ['100', '90', '80']">
+              <li *ngIf="percent !== '100'" >&nbsp;&nbsp;&nbsp;difference of {{calculatePercentageDiff(percent)}}%</li>
+              <br *ngIf="percent !== '100'">
+              <li><b>{{percent}}% : </b><span>&nbsp;{{cleanPresentation ? cleanPresentation[percent].length : 0}}&nbsp;total</span></li>
+              <br *ngIf="percent === '80'">
+              <li *ngIf="percent === '80'">&nbsp;&nbsp;&nbsp;difference of {{calculatePercentageDiff('70')}}%</li>
+            </ul>
+          </ion-col>
+        </ion-row> -->
+  </ion-grid>
+</section>
+
+
+
+
+
+
+<!-- <section>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <div class="red streak">
+          <div class="title">red streak</div>
+          <ion-grid >
+            <ion-row>
+              <ion-col>{{redStreak[1]}}</ion-col>
+              <ion-col>{{redStreak[2]}}</ion-col>
+              <ion-col>{{redStreak[3]}}</ion-col>
+              <ion-col>{{redStreak[4]}}</ion-col>
+              <ion-col>{{redStreak[5]}}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <ul *ngFor="let percent of ['70', '60', '50']">
+          <li *ngIf="percent !== '70'">&nbsp;&nbsp;&nbsp;difference of {{calculatePercentageDiff(percent)}}%</li>
+          <br *ngIf="percent !== '70'">
+          <li><b>{{percent}}% : </b><span>&nbsp;{{cleanPresentation ? cleanPresentation[percent].length : 0}}&nbsp;total</span></li>
+        </ul>
+      </ion-col>
+      <ion-col size="6">
+        <div class="blue streak">
+          <div class="title">blue streak</div>
+          <ion-grid >
+            <ion-row>
+              <ion-col>{{blueStreak[1]}}</ion-col>
+              <ion-col>{{blueStreak[2]}}</ion-col>
+              <ion-col>{{blueStreak[3]}}</ion-col>
+              <ion-col>{{blueStreak[4]}}</ion-col>
+              <ion-col>{{blueStreak[5]}}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <ul *ngFor="let percent of ['100', '90', '80']">
+          <li *ngIf="percent !== '100'" >&nbsp;&nbsp;&nbsp;difference of {{calculatePercentageDiff(percent)}}%</li>
+          <br *ngIf="percent !== '100'">
+          <li><b>{{percent}}% : </b><span>&nbsp;{{cleanPresentation ? cleanPresentation[percent].length : 0}}&nbsp;total</span></li>
+          <br *ngIf="percent === '80'">
+          <li *ngIf="percent === '80'">&nbsp;&nbsp;&nbsp;difference of {{calculatePercentageDiff('70')}}%</li>
+        </ul>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</section> -->

@@ -1,0 +1,1275 @@
+<ion-toolbar>
+  <div class="logo">
+    <img src='../../../assets/img/avatars/avatar_{{myAvatar}}.png' />
+    <div class="ludo">
+      <span>{{myName}}</span>
+
+    </div>
+    <div class="closeBtn" (click)="leaveModalShow()">
+    </div>
+  </div>
+
+</ion-toolbar>
+
+<ion-content class="padding">
+
+  <canvas [hidden]="!userFinished" inViewport [inViewportOptions]="{ threshold: [0], partial: true }"
+    (inViewportAction)="setItemVisibility($event)" *ngIf="visible || stopped" [id]="canvasId">
+    <ng-content>
+
+    </ng-content>
+
+  </canvas>
+
+  <div class="contain1" [hidden]="!userFinished">
+    <div class="board">
+      <div class="btnContainer">
+        <div class="leaveBtn" (click)="leaveTable()">Leave</div>
+        <div class="restartBtn" (click)="continueGame()">Continue</div>
+      </div>
+    </div>
+  </div>
+  <div class="tcontainer">
+    <div class="contain" [hidden]="userFinished">
+      <div class="main">
+        <div class="main-ludo">
+          <div class="wrapper wrapperTop wrapperTopBottom">
+            <ion-grid>
+              <ion-row class="row">
+                <ion-col class="box1 box playerBox player1Box" size='4.7'>
+                  <div class="innerBox">
+                    <ion-grid>
+                      <ion-row class="smallBoxRow">
+                        <ion-col class="locaton-pos">
+                          <div class="location location-red {{animateHome[0]}}" (click)="moveOut('red',3)"
+                            [hidden]="homeShow[0][3]<1" *ngIf="showHome[0]">
+                          </div>
+                        </ion-col>
+                        <ion-col class="locaton-pos">
+                          <div class="location location-red {{animateHome[0]}}" (click)="moveOut('red',2)"
+                            [hidden]="homeShow[0][2]<1" *ngIf="showHome[0]">
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row class="smallBoxRow">
+                        <ion-col class="locaton-pos">
+                          <div class="location location-red {{animateHome[0]}}" (click)="moveOut('red',1)"
+                            [hidden]="homeShow[0][1]<1" *ngIf="showHome[0]">
+                          </div>
+                        </ion-col>
+                        <ion-col class="locaton-pos">
+                          <div class="location location-red {{animateHome[0]}}" (click)="moveOut('red',0)"
+                            [hidden]="homeShow[0][0]<1" *ngIf="showHome[0]">
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+
+                  </div>
+                </ion-col>
+
+                <ion-col class="box2 box " size="2.6">
+                  <ion-grid class="border-top">
+                    <ion-row class="row1">
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][10][0]}}" (click)="move('red',10)"
+                          [hidden]="locationShow[0][10][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][10][0]}}" (click)="move('green',10)"
+                          [hidden]="locationShow[1][10][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][10][0]}}" (click)="move('blue',10)"
+                          [hidden]="locationShow[2][10][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][10][0]}}" (click)="move('yellow',10)"
+                          [hidden]="locationShow[3][10][0]<1">
+                        </div>
+
+                        11
+                      </ion-col>
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][11][0]}}" (click)="move('red',11)"
+                          [hidden]="locationShow[0][11][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][11][0]}}" (click)="move('green',11)"
+                          [hidden]="locationShow[1][11][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][11][0]}}" (click)="move('blue',11)"
+                          [hidden]="locationShow[2][11][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][11][0]}}" (click)="move('yellow',11)"
+                          [hidden]="locationShow[3][11][0]<1">
+                        </div>
+                        12
+                      </ion-col>
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][12][0]}}" (click)="move('red',12)"
+                          [hidden]="locationShow[0][12][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][12][0]}}" (click)="move('green',12)"
+                          [hidden]="locationShow[1][12][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][12][0]}}" (click)="move('blue',12)"
+                          [hidden]="locationShow[2][12][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][12][0]}}" (click)="move('yellow',12)"
+                          [hidden]="locationShow[3][12][0]<1">
+                        </div>
+                        13
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="row2">
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][9][0]}}" (click)="move('red',9)"
+                          [hidden]="locationShow[0][9][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][9][0]}}" (click)="move('green',9)"
+                          [hidden]="locationShow[1][9][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][9][0]}}" (click)="move('blue',9)"
+                          [hidden]="locationShow[2][9][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][9][0]}}" (click)="move('yellow',9)"
+                          [hidden]="locationShow[3][9][0]<1">
+                        </div>
+                        10
+                      </ion-col>
+                      <ion-col size='4' class="greenCol">
+                        <div class="location location-green {{animateCol[0][50][0]}}" (click)="moveColored('green',0)"
+                          [hidden]="locationShowColored[1][0][0]<1">
+                        </div>
+                        G1
+                      </ion-col>
+                      <ion-col size='4' [ngClass]="{'greenCol':true,'greenStart':true,'borderStroke':(locationShow[1][13][0]===2)}">
+                        <div class="location location-red {{animateCol[0][13][0]}}" (click)="move('red',13)"
+                          [hidden]="locationShow[0][13][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][13][0]}}" (click)="move('green',13)"
+                          [hidden]="locationShow[1][13][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][13][0]}}" (click)="move('blue',13)"
+                          [hidden]="locationShow[2][13][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][13][0]}}" (click)="move('yellow',13)"
+                          [hidden]="locationShow[3][13][0]<1">
+                        </div>
+                        14
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="row3">
+                      <ion-col size='4' class="col-star">
+                        <div class="location location-red {{animateCol[0][8][0]}}" (click)="move('red',8)"
+                          [hidden]="locationShow[0][8][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][8][0]}}" (click)="move('green',8)"
+                          [hidden]="locationShow[1][8][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][8][0]}}" (click)="move('blue',8)"
+                          [hidden]="locationShow[2][8][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][8][0]}}" (click)="move('yellow',8)"
+                          [hidden]="locationShow[3][8][0]<1">
+                        </div>
+
+                      </ion-col>
+                      <ion-col size='4' class="greenCol">
+                        <div class="location location-green {{animateCol[1][50][0]}}" (click)="moveColored('green',1)"
+                          [hidden]="locationShowColored[1][1][0]<1">
+                        </div>
+                        G2
+                      </ion-col>
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][14][0]}}" (click)="move('red',14)"
+                          [hidden]="locationShow[0][14][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][14][0]}}" (click)="move('green',14)"
+                          [hidden]="locationShow[1][14][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][14][0]}}" (click)="move('blue',14)"
+                          [hidden]="locationShow[2][14][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][14][0]}}" (click)="move('yellow',14)"
+                          [hidden]="locationShow[3][14][0]<1">
+                        </div>
+                        15
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="row4">
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][7][0]}}" (click)="move('red',7)"
+                          [hidden]="locationShow[0][7][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][7][0]}}" (click)="move('green',7)"
+                          [hidden]="locationShow[1][7][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][7][0]}}" (click)="move('blue',7)"
+                          [hidden]="locationShow[2][7][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][7][0]}}" (click)="move('yellow',7)"
+                          [hidden]="locationShow[3][7][0]<1">
+                        </div>
+                        8
+                      </ion-col>
+                      <ion-col size='4' class="greenCol">
+                        <div class="location location-green {{animateCol[1][50][0]}}" (click)="moveColored('green',2)"
+                          [hidden]="locationShowColored[1][2][0]<1">
+                        </div>
+                        G3
+                      </ion-col>
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][15][0]}}" (click)="move('red',15)"
+                          [hidden]="locationShow[0][15][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][15][0]}}" (click)="move('green',15)"
+                          [hidden]="locationShow[1][15][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][15][0]}}" (click)="move('blue',15)"
+                          [hidden]="locationShow[2][15][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][15][0]}}" (click)="move('yellow',15)"
+                          [hidden]="locationShow[3][15][0]<1">
+                        </div>
+                        16
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="row5">
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][6][0]}}" (click)="move('red',6)"
+                          [hidden]="locationShow[0][6][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][6][0]}}" (click)="move('green',6)"
+                          [hidden]="locationShow[1][6][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][6][0]}}" (click)="move('blue',6)"
+                          [hidden]="locationShow[2][6][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][6][0]}}" (click)="move('yellow',6)"
+                          [hidden]="locationShow[3][6][0]<1">
+                        </div>
+                        7
+                      </ion-col>
+                      <ion-col size='4' class="greenCol">
+                        <div class="location location-green {{animateCol[1][50][0]}}" (click)="moveColored('green',3)"
+                          [hidden]="locationShowColored[1][3][0]<1">
+                        </div>
+                        G4
+                      </ion-col>
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][16][0]}}" (click)="move('red',16)"
+                          [hidden]="locationShow[0][16][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][16][0]}}" (click)="move('green',16)"
+                          [hidden]="locationShow[1][16][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][16][0]}}" (click)="move('blue',16)"
+                          [hidden]="locationShow[2][16][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][16][0]}}" (click)="move('yellow',16)"
+                          [hidden]="locationShow[3][16][0]<1">
+                        </div>
+                        17
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="row6">
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][5][0]}}" (click)="move('red',5)"
+                          [hidden]="locationShow[0][5][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][5][0]}}" (click)="move('green',5)"
+                          [hidden]="locationShow[1][5][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][5][0]}}" (click)="move('blue',5)"
+                          [hidden]="locationShow[2][5][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][5][0]}}" (click)="move('yellow',5)"
+                          [hidden]="locationShow[3][5][0]<1">
+                        </div>
+                        6
+                      </ion-col>
+                      <ion-col size='4' class="greenCol">
+                        <div class="location location-green {{animateCol[1][50][0]}}" (click)="moveColored('green',4)"
+                          [hidden]="locationShowColored[1][4][0]<1">
+                        </div>
+                        G5
+                      </ion-col>
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][17][0]}}" (click)="move('red',17)"
+                          [hidden]="locationShow[0][17][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][17][0]}}" (click)="move('green',17)"
+                          [hidden]="locationShow[1][17][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][17][0]}}" (click)="move('blue',17)"
+                          [hidden]="locationShow[2][17][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][17][0]}}" (click)="move('yellow',17)"
+                          [hidden]="locationShow[3][17][0]<1">
+                        </div>
+                        18
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-col>
+                <ion-col class="box3 box playerBox player2Box" size='4.7'>
+
+                  <div class="innerBox">
+
+                    <ion-grid>
+                      <ion-row class="smallBoxRow">
+                        <ion-col class="locaton-pos">
+                          <div class="location location-green {{animateHome[1]}}" (click)="moveOut('green',2)"
+                            [hidden]="homeShow[1][2]<1" *ngIf="showHome[1]">
+                          </div>
+                        </ion-col>
+                        <ion-col class="locaton-pos">
+                          <div class="location location-green {{animateHome[1]}}" (click)="moveOut('green',3)"
+                            [hidden]="homeShow[1][3]<1" *ngIf="showHome[1]">
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row class="smallBoxRow">
+                        <ion-col class="locaton-pos">
+                          <div class="location location-green {{animateHome[1]}}" (click)="moveOut('green',1)"
+                            [hidden]="homeShow[1][1]<1" *ngIf="showHome[1]">
+                          </div>
+                        </ion-col>
+                        <ion-col class="locaton-pos">
+                          <div class="location location-green {{animateHome[1]}}" (click)="moveOut('green',0)"
+                            [hidden]="homeShow[1][0]<1" *ngIf="showHome[1]">
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+
+
+          <div class="wrapper wrapperMiddle">
+            <ion-grid>
+              <ion-row class="row">
+                <ion-col class="box1 box" size='4.7'>
+                  <ion-grid class="border-leftTop">
+                    <ion-row class="rowM1">
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][51][0]}}" (click)="move('red',51)"
+                          [hidden]="locationShow[0][51][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][51][0]}}" (click)="move('green',51)"
+                          [hidden]="locationShow[1][51][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][51][0]}}" (click)="move('blue',51)"
+                          [hidden]="locationShow[2][51][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][51][0]}}" (click)="move('yellow',51)"
+                          [hidden]="locationShow[3][51][0]<1">
+                        </div>
+
+                        52
+                      </ion-col>
+                      <ion-col size="2" [ngClass]="{'redCol':true,'redStart':true,'location-pos':true,'box-one':true,'borderStroke':(locationShow[0][0][0]===2)}" >
+                        <div class="location location-red {{animateCol[0][0][0]}}" (click)="move('red',0)"
+                          [hidden]="locationShow[0][0][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][0][0]}}" (click)="move('green',0)"
+                          [hidden]="locationShow[1][0][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][0][0]}}" (click)="move('blue',0)"
+                          [hidden]="locationShow[2][0][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][0][0]}}" (click)="move('yellow',0)"
+                          [hidden]="locationShow[3][0][0]<1">
+                        </div>
+                        1
+                      </ion-col>
+                      <ion-col size="2" class="box-2">
+                        <div class="location location-red {{animateCol[0][1][0]}}" (click)="move('red',1)"
+                          [hidden]="locationShow[0][1][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][1][0]}}" (click)="move('green',1)"
+                          [hidden]="locationShow[1][1][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][1][0]}}" (click)="move('blue',1)"
+                          [hidden]="locationShow[2][1][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][1][0]}}" (click)="move('yellow',1)"
+                          [hidden]="locationShow[3][1][0]<1">
+                        </div>
+                        2
+                      </ion-col>
+                      <ion-col size="2" class="box-3">
+                        <div class="location location-red {{animateCol[0][2][0]}}" (click)="move('red',2)"
+                          [hidden]="locationShow[0][2][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][2][0]}}" (click)="move('green',2)"
+                          [hidden]="locationShow[1][2][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][2][0]}}" (click)="move('blue',2)"
+                          [hidden]="locationShow[2][2][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][2][0]}}" (click)="move('yellow',2)"
+                          [hidden]="locationShow[3][2][0]<1">
+                        </div>
+                        3
+                      </ion-col>
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][3][0]}}" (click)="move('red',3)"
+                          [hidden]="locationShow[0][3][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][3][0]}}" (click)="move('green',3)"
+                          [hidden]="locationShow[1][3][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][3][0]}}" (click)="move('blue',3)"
+                          [hidden]="locationShow[2][3][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][3][0]}}" (click)="move('yellow',3)"
+                          [hidden]="locationShow[3][3][0]<1">
+                        </div>
+                        4
+                      </ion-col>
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][4][0]}}" (click)="move('red',4)"
+                          [hidden]="locationShow[0][4][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][4][0]}}" (click)="move('green',4)"
+                          [hidden]="locationShow[1][4][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][4][0]}}" (click)="move('blue',4)"
+                          [hidden]="locationShow[2][4][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][4][0]}}" (click)="move('yellow',4)"
+                          [hidden]="locationShow[3][4][0]<1">
+                        </div>
+                        5
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="rowM2">
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][50][0]}}" (click)="move('red',50)"
+                          [hidden]="locationShow[0][50][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][50][0]}}" (click)="move('green',50)"
+                          [hidden]="locationShow[1][50][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][50][0]}}" (click)="move('blue',50)"
+                          [hidden]="locationShow[2][50][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][50][0]}}" (click)="move('yellow',50)"
+                          [hidden]="locationShow[3][50][0]<1">
+                        </div>
+                        51
+                      </ion-col>
+                      <ion-col size="2" class="redCol">
+                        <div class="location location-red {{animateCol[0][50][0]}}" (click)="moveColored('red',0)"
+                          [hidden]="locationShowColored[0][0][0]<1">
+                        </div>
+                        R1
+                      </ion-col>
+                      <ion-col size="2" class="redCol">
+                        <div class="location location-red {{animateCol[0][50][0]}}" (click)="moveColored('red',1)"
+                          [hidden]="locationShowColored[0][1][0]<1">
+                        </div>
+                        R2
+                      </ion-col>
+                      <ion-col size="2" class="redCol">
+                        <div class="location location-red {{animateCol[0][50][0]}}" (click)="moveColored('red',2)"
+                          [hidden]="locationShowColored[0][2][0]<1">
+                        </div>
+                        R3
+                      </ion-col>
+                      <ion-col size="2" class="redCol">
+                        <div class="location location-red {{animateCol[0][50][0]}}" (click)="moveColored('red',3)"
+                          [hidden]="locationShowColored[0][3][0]<1">
+                        </div>R4
+                      </ion-col>
+
+                      <ion-col size="2" class="redCol">
+                        <div class="location location-red {{animateCol[0][50][0]}}" (click)="moveColored('red',4)"
+                          [hidden]="locationShowColored[0][4][0]<1">
+                        </div>
+                        R5
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="rowM3">
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][49][0]}}" (click)="move('red',49)"
+                          [hidden]="locationShow[0][49][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][49][0]}}" (click)="move('green',49)"
+                          [hidden]="locationShow[1][49][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][49][0]}}" (click)="move('blue',49)"
+                          [hidden]="locationShow[2][49][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][49][0]}}" (click)="move('yellow',49)"
+                          [hidden]="locationShow[3][49][0]<1">
+                        </div>
+                        50
+                      </ion-col>
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][48][0]}}" (click)="move('red',48)"
+                          [hidden]="locationShow[0][48][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][48][0]}}" (click)="move('green',48)"
+                          [hidden]="locationShow[1][48][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][48][0]}}" (click)="move('blue',48)"
+                          [hidden]="locationShow[2][48][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][48][0]}}" (click)="move('yellow',48)"
+                          [hidden]="locationShow[3][48][0]<1">
+                        </div>
+                        49
+                      </ion-col>
+                      <ion-col size="2" class="col-star">
+                        <div class="location location-red {{animateCol[0][47][0]}}" (click)="move('red',47)"
+                          [hidden]="locationShow[0][47][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][47][0]}}" (click)="move('green',47)"
+                          [hidden]="locationShow[1][47][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][47][0]}}" (click)="move('blue',47)"
+                          [hidden]="locationShow[2][47][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][47][0]}}" (click)="move('yellow',47)"
+                          [hidden]="locationShow[3][47][0]<1">
+                        </div>
+                      </ion-col>
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][46][0]}}" (click)="move('red',46)"
+                          [hidden]="locationShow[0][46][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][46][0]}}" (click)="move('green',46)"
+                          [hidden]="locationShow[1][46][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][46][0]}}" (click)="move('blue',46)"
+                          [hidden]="locationShow[2][46][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][46][0]}}" (click)="move('yellow',46)"
+                          [hidden]="locationShow[3][46][0]<1">
+                        </div>
+
+                        47
+                      </ion-col>
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][45][0]}}" (click)="move('red',45)"
+                          [hidden]="locationShow[0][45][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][45][0]}}" (click)="move('green',45)"
+                          [hidden]="locationShow[1][45][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][45][0]}}" (click)="move('blue',45)"
+                          [hidden]="locationShow[2][45][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][45][0]}}" (click)="move('yellow',45)"
+                          [hidden]="locationShow[3][45][0]<1">
+                        </div>
+                        46
+                      </ion-col>
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][44][0]}}" (click)="move('red',44)"
+                          [hidden]="locationShow[0][44][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][44][0]}}" (click)="move('green',44)"
+                          [hidden]="locationShow[1][44][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][44][0]}}" (click)="move('blue',44)"
+                          [hidden]="locationShow[2][44][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][44][0]}}" (click)="move('yellow',44)"
+                          [hidden]="locationShow[3][44][0]<1">
+                        </div>
+
+                        45
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-col>
+                <ion-col class="box2 box center " size="2.6">
+                  <div class="colorHomeAnimation" [hidden]="!showColoredAnimation">
+                    <div class="pyro">
+                      <div class="before"></div>
+                      <div class="after"></div>
+                    </div>
+                  </div>
+                  <!-- <div class="triangle"></div> -->
+                </ion-col>
+                <ion-col class="box3 box" size='4.7'>
+                  <ion-grid class="border-rightTop">
+                    <ion-row class="rowM1">
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][18][0]}}" (click)="move('red',18)"
+                          [hidden]="locationShow[0][18][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][18][0]}}" (click)="move('green',18)"
+                          [hidden]="locationShow[1][18][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][18][0]}}" (click)="move('blue',18)"
+                          [hidden]="locationShow[2][18][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][18][0]}}" (click)="move('yellow',18)"
+                          [hidden]="locationShow[3][18][0]<1">
+                        </div>
+
+                        19
+                      </ion-col>
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][19][0]}}" (click)="move('red',19)"
+                          [hidden]="locationShow[0][19][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][19][0]}}" (click)="move('green',19)"
+                          [hidden]="locationShow[1][19][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][19][0]}}" (click)="move('blue',19)"
+                          [hidden]="locationShow[2][19][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][19][0]}}" (click)="move('yellow',19)"
+                          [hidden]="locationShow[3][19][0]<1">
+                        </div>
+
+                        20
+                      </ion-col>
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][20][0]}}" (click)="move('red',20)"
+                          [hidden]="locationShow[0][20][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][20][0]}}" (click)="move('green',20)"
+                          [hidden]="locationShow[1][20][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][20][0]}}" (click)="move('blue',20)"
+                          [hidden]="locationShow[2][20][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][20][0]}}" (click)="move('yellow',20)"
+                          [hidden]="locationShow[3][20][0]<1">
+                        </div>
+
+                        21
+                      </ion-col>
+                      <ion-col size="2" class="col-star">
+                        <div class="location location-red {{animateCol[0][21][0]}}" (click)="move('red',21)"
+                          [hidden]="locationShow[0][21][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][21][0]}}" (click)="move('green',21)"
+                          [hidden]="locationShow[1][21][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][21][0]}}" (click)="move('blue',21)"
+                          [hidden]="locationShow[2][21][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][21][0]}}" (click)="move('yellow',21)"
+                          [hidden]="locationShow[3][21][0]<1">
+                        </div>
+
+                      </ion-col>
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][22][0]}}" (click)="move('red',22)"
+                          [hidden]="locationShow[0][22][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][22][0]}}" (click)="move('green',22)"
+                          [hidden]="locationShow[1][22][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][22][0]}}" (click)="move('blue',22)"
+                          [hidden]="locationShow[2][22][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][22][0]}}" (click)="move('yellow',22)"
+                          [hidden]="locationShow[3][22][0]<1">
+                        </div>
+
+                        23
+                      </ion-col>
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][23][0]}}" (click)="move('red',23)"
+                          [hidden]="locationShow[0][23][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][23][0]}}" (click)="move('green',23)"
+                          [hidden]="locationShow[1][23][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][23][0]}}" (click)="move('blue',23)"
+                          [hidden]="locationShow[2][23][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][23][0]}}" (click)="move('yellow',23)"
+                          [hidden]="locationShow[3][23][0]<1">
+                        </div>
+
+                        24
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="rowM2">
+                      <ion-col size="2" class="blueCol">
+                        <div class="location location-blue {{animateCol[2][50][0]}}" (click)="moveColored('blue',4)"
+                          [hidden]="locationShowColored[2][4][0]<1">
+                        </div>
+                        B5
+                      </ion-col>
+                      <ion-col size="2" class="blueCol">
+                        <div class="location location-blue {{animateCol[2][50][0]}}" (click)="moveColored('blue',3)"
+                          [hidden]="locationShowColored[2][3][0]<1">
+                        </div>
+                        B4
+                      </ion-col>
+                      <ion-col size="2" class="blueCol">
+                        <div class="location location-blue {{animateCol[2][50][0]}}" (click)="moveColored('blue',2)"
+                          [hidden]="locationShowColored[2][2][0]<1">
+                        </div>
+                        B3
+                      </ion-col>
+                      <ion-col size="2" class="blueCol">
+                        <div class="location location-blue {{animateCol[2][50][0]}}" (click)="moveColored('blue',1)"
+                          [hidden]="locationShowColored[2][1][0]<1">
+                        </div>
+                        B2
+                      </ion-col>
+                      <ion-col size="2" class="blueCol">
+                        <div class="location location-blue {{animateCol[2][50][0]}}" (click)="moveColored('blue',0)"
+                          [hidden]="locationShowColored[2][0][0]<1">
+                        </div>
+                        B1
+                      </ion-col>
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][24][0]}}" (click)="move('red',24)"
+                          [hidden]="locationShow[0][24][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][24][0]}}" (click)="move('green',24)"
+                          [hidden]="locationShow[1][24][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][24][0]}}" (click)="move('blue',24)"
+                          [hidden]="locationShow[2][24][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][24][0]}}" (click)="move('yellow',24)"
+                          [hidden]="locationShow[3][24][0]<1">
+                        </div>
+
+                        25
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="rowM3">
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][30][0]}}" (click)="move('red',30)"
+                          [hidden]="locationShow[0][30][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][30][0]}}" (click)="move('green',30)"
+                          [hidden]="locationShow[1][30][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][30][0]}}" (click)="move('blue',30)"
+                          [hidden]="locationShow[2][30][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][30][0]}}" (click)="move('yellow',30)"
+                          [hidden]="locationShow[3][30][0]<1">
+                        </div>
+
+                        31
+                      </ion-col>
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][29][0]}}" (click)="move('red',29)"
+                          [hidden]="locationShow[0][29][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][29][0]}}" (click)="move('green',29)"
+                          [hidden]="locationShow[1][29][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][29][0]}}" (click)="move('blue',29)"
+                          [hidden]="locationShow[2][29][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][29][0]}}" (click)="move('yellow',29)"
+                          [hidden]="locationShow[3][29][0]<1">
+                        </div>
+
+                        30
+                      </ion-col>
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][28][0]}}" (click)="move('red',28)"
+                          [hidden]="locationShow[0][28][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][28][0]}}" (click)="move('green',28)"
+                          [hidden]="locationShow[1][28][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][28][0]}}" (click)="move('blue',28)"
+                          [hidden]="locationShow[2][28][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][28][0]}}" (click)="move('yellow',28)"
+                          [hidden]="locationShow[3][28][0]<1">
+                        </div>
+
+                        29
+                      </ion-col>
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][27][0]}}" (click)="move('red',27)"
+                          [hidden]="locationShow[0][27][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][27][0]}}" (click)="move('green',27)"
+                          [hidden]="locationShow[1][27][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][27][0]}}" (click)="move('blue',27)"
+                          [hidden]="locationShow[2][27][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[1][27][0]}}" (click)="move('yellow',27)"
+                          [hidden]="locationShow[3][27][0]<1">
+                        </div>
+                        28
+                      </ion-col>
+                      <ion-col size="2" [ngClass]="{'blueCol':true,'blueStart':true,'borderStroke':(locationShow[2][26][0]===2)}">
+                        <div class="location location-red {{animateCol[0][12][0]}}" (click)="move('red',26)"
+                          [hidden]="locationShow[0][26][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][12][0]}}" (click)="move('green',26)"
+                          [hidden]="locationShow[1][26][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][12][0]}}" (click)="move('blue',26)"
+                          [hidden]="locationShow[2][26][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][12][0]}}" (click)="move('yellow',26)"
+                          [hidden]="locationShow[3][26][0]<1">
+                        </div>
+                        27
+                      </ion-col>
+                      <ion-col size="2">
+                        <div class="location location-red {{animateCol[0][12][0]}}" (click)="move('red',25)"
+                          [hidden]="locationShow[0][25][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][12][0]}}" (click)="move('green',25)"
+                          [hidden]="locationShow[1][25][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][12][0]}}" (click)="move('blue',25)"
+                          [hidden]="locationShow[2][25][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][12][0]}}" (click)="move('yellow',25)"
+                          [hidden]="locationShow[3][25][0]<1">
+                        </div>
+
+                        26
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+
+
+          <div class="wrapper wrapperBottom wrapperTopBottom box-shadow">
+            <ion-grid>
+              <ion-row class="row">
+                <ion-col class="box1 box playerBox player3Box" size="4.7">
+
+                  <div class="innerBox">
+                    <ion-grid>
+                      <ion-row class="smallBoxRow">
+                        <ion-col>
+                          <div class="location location-yellow {{animateHome[3]}}" (click)="moveOut('yellow',0)"
+                            [hidden]="homeShow[3][0]<1" *ngIf="showHome[3]">
+                          </div>
+                        </ion-col>
+                        <ion-col>
+                          <div class="location location-yellow {{animateHome[3]}}" (click)="moveOut('yellow',1)"
+                            [hidden]="homeShow[3][1]<1" *ngIf="showHome[3]">
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row class="smallBoxRow">
+                        <ion-col>
+                          <div class="location location-yellow {{animateHome[3]}}" (click)="moveOut('yellow',2)"
+                            [hidden]="homeShow[3][2]<1" *ngIf="showHome[3]">
+                          </div>
+                        </ion-col>
+                        <ion-col>
+                          <div class="location location-yellow {{animateHome[3]}}" (click)="moveOut('yellow',3)"
+                            [hidden]="homeShow[3][3]<1" *ngIf="showHome[3]">
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+
+                  </div>
+                </ion-col>
+                <ion-col class="box2 box " size="2.6">
+
+                  <ion-grid class="border-top">
+                    <ion-row class="row1">
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][43][0]}}" (click)="move('red',43)"
+                          [hidden]="locationShow[0][43][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][43][0]}}" (click)="move('green',43)"
+                          [hidden]="locationShow[1][43][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][43][0]}}" (click)="move('blue',43)"
+                          [hidden]="locationShow[2][43][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][43][0]}}" (click)="move('yellow',43)"
+                          [hidden]="locationShow[3][43][0]<1">
+                        </div>
+                        44
+                      </ion-col>
+                      <ion-col size='4' class="yellowCol">
+                        <div class="location location-yellow {{animateCol[3][50][0]}}" (click)="moveColored('yellow',4)"
+                          [hidden]="locationShowColored[3][4][0]<1">
+                        </div>
+                        Y5
+                      </ion-col>
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][31][0]}}" (click)="move('red',31)"
+                          [hidden]="locationShow[0][31][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][31][0]}}" (click)="move('green',31)"
+                          [hidden]="locationShow[1][31][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][31][0]}}" (click)="move('blue',31)"
+                          [hidden]="locationShow[2][31][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][31][0]}}" (click)="move('yellow',31)"
+                          [hidden]="locationShow[3][31][0]<1">
+                        </div>
+
+                        32
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="row2">
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][42][0]}}" (click)="move('red',42)"
+                          [hidden]="locationShow[0][42][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][42][0]}}" (click)="move('green',42)"
+                          [hidden]="locationShow[1][42][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][42][0]}}" (click)="move('blue',42)"
+                          [hidden]="locationShow[2][42][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][42][0]}}" (click)="move('yellow',42)"
+                          [hidden]="locationShow[3][42][0]<1">
+                        </div>
+
+                        43
+                      </ion-col>
+                      <ion-col size='4' class="yellowCol">
+                        <div class="location location-yellow {{animateCol[3][50][0]}}" (click)="moveColored('yellow',3)"
+                          [hidden]="locationShowColored[3][3][0]<1">
+                        </div>
+                        Y4
+                      </ion-col>
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][32][0]}}" (click)="move('red',32)"
+                          [hidden]="locationShow[0][32][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][32][0]}}" (click)="move('green',32)"
+                          [hidden]="locationShow[1][32][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][32][0]}}" (click)="move('blue',32)"
+                          [hidden]="locationShow[2][32][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][32][0]}}" (click)="move('yellow',32)"
+                          [hidden]="locationShow[3][32][0]<1">
+                        </div>
+
+                        33
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="row3">
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][41][0]}}" (click)="move('red',41)"
+                          [hidden]="locationShow[0][41][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][41][0]}}" (click)="move('green',41)"
+                          [hidden]="locationShow[1][41][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][41][0]}}" (click)="move('blue',41)"
+                          [hidden]="locationShow[2][41][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][41][0]}}" (click)="move('yellow',41)"
+                          [hidden]="locationShow[3][41][0]<1">
+                        </div>
+
+                        42
+                      </ion-col>
+                      <ion-col size='4' class="yellowCol">
+                        <div class="location location-yellow {{animateCol[3][50][0]}}" (click)="moveColored('yellow',2)"
+                          [hidden]="locationShowColored[3][2][0]<1">
+                        </div>
+                        Y3
+                      </ion-col>
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][33][0]}}" (click)="move('red',33)"
+                          [hidden]="locationShow[0][33][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][33][0]}}" (click)="move('green',33)"
+                          [hidden]="locationShow[1][33][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][33][0]}}" (click)="move('blue',33)"
+                          [hidden]="locationShow[2][33][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][33][0]}}" (click)="move('yellow',33)"
+                          [hidden]="locationShow[3][33][0]<1">
+                        </div>
+
+                        34
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="row4">
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][40][0]}}" (click)="move('red',40)"
+                          [hidden]="locationShow[0][40][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][40][0]}}" (click)="move('green',40)"
+                          [hidden]="locationShow[1][40][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][40][0]}}" (click)="move('blue',40)"
+                          [hidden]="locationShow[2][40][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][40][0]}}" (click)="move('yellow',40)"
+                          [hidden]="locationShow[3][40][0]<1">
+                        </div>
+
+                        41
+                      </ion-col>
+                      <ion-col size='4' class="yellowCol">
+                        <div class="location location-yellow {{animateCol[3][50][0]}}" (click)="moveColored('yellow',1)"
+                          [hidden]="locationShowColored[3][1][0]<1">
+                        </div>
+                        Y2
+                      </ion-col>
+                      <ion-col size='4' class="col-star">
+                        <div class="location location-red {{animateCol[0][34][0]}}" (click)="move('red',34)"
+                          [hidden]="locationShow[0][34][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][34][0]}}" (click)="move('green',34)"
+                          [hidden]="locationShow[1][34][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][34][0]}}" (click)="move('blue',34)"
+                          [hidden]="locationShow[2][34][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][34][0]}}" (click)="move('yellow',34)"
+                          [hidden]="locationShow[3][34][0]<1">
+                        </div>
+
+
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="row5">
+                      <ion-col size='4' [ngClass]="{'yellowCol':true,'yellowStart':true,'borderStroke':(locationShow[3][39][0]===2)}">
+                        <div class="location location-red {{animateCol[0][39][0]}}" (click)="move('red',39)"
+                          [hidden]="locationShow[0][39][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][39][0]}}" (click)="move('green',39)"
+                          [hidden]="locationShow[1][39][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][39][0]}}" (click)="move('blue',39)"
+                          [hidden]="locationShow[2][39][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][39][0]}}" (click)="move('yellow',39)"
+                          [hidden]="locationShow[3][39][0]<1">
+                        </div>
+
+                        40
+                      </ion-col>
+                      <ion-col size='4' class="yellowCol">
+                        <div class="location location-yellow {{animateCol[3][50][0]}}" (click)="moveColored('yellow',0)"
+                          [hidden]="locationShowColored[3][0][0]<1">
+                        </div>
+                        Y1
+                      </ion-col>
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][35][0]}}" (click)="move('red',35)"
+                          [hidden]="locationShow[0][35][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][35][0]}}" (click)="move('green',35)"
+                          [hidden]="locationShow[1][35][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][35][0]}}" (click)="move('blue',35)"
+                          [hidden]="locationShow[2][35][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][35][0]}}" (click)="move('yellow',35)"
+                          [hidden]="locationShow[3][35][0]<1">
+                        </div>
+
+                        36
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="row6">
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][38][0]}}" (click)="move('red',38)"
+                          [hidden]="locationShow[0][38][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][38][0]}}" (click)="move('green',38)"
+                          [hidden]="locationShow[1][38][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][38][0]}}" (click)="move('blue',38)"
+                          [hidden]="locationShow[2][38][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][38][0]}}" (click)="move('yellow',38)"
+                          [hidden]="locationShow[3][38][0]<1">
+                        </div>
+
+                        39
+                      </ion-col>
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][37][0]}}" (click)="move('red',37)"
+                          [hidden]="locationShow[0][37][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][37][0]}}" (click)="move('green',37)"
+                          [hidden]="locationShow[1][37][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][37][0]}}" (click)="move('blue',37)"
+                          [hidden]="locationShow[2][37][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][37][0]}}" (click)="move('yellow',37)"
+                          [hidden]="locationShow[3][37][0]<1">
+                        </div>
+
+                        38
+                      </ion-col>
+                      <ion-col size='4'>
+                        <div class="location location-red {{animateCol[0][36][0]}}" (click)="move('red',36)"
+                          [hidden]="locationShow[0][36][0]<1">
+                        </div>
+                        <div class="location location-green {{animateCol[1][36][0]}}" (click)="move('green',36)"
+                          [hidden]="locationShow[1][36][0]<1">
+                        </div>
+                        <div class="location location-blue {{animateCol[2][36][0]}}" (click)="move('blue',36)"
+                          [hidden]="locationShow[2][36][0]<1">
+                        </div>
+                        <div class="location location-yellow {{animateCol[3][36][0]}}" (click)="move('yellow',36)"
+                          [hidden]="locationShow[3][36][0]<1">
+                        </div>
+
+                        37
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+
+
+                </ion-col>
+                <ion-col class="box3 box playerBox player4Box" size="4.7">
+
+                  <div class="innerBox">
+
+                    <ion-grid>
+                      <ion-row class="smallBoxRow">
+                        <ion-col>
+                          <div class="location location-blue {{animateHome[2]}}" (click)="moveOut('blue',1)"
+                            *ngIf="showHome[2]" [hidden]="homeShow[2][0]<1">
+                          </div>
+                        </ion-col>
+                        <ion-col>
+                          <div class="location location-blue {{animateHome[2]}}" (click)="moveOut('blue',2)"
+                            *ngIf="showHome[2]" [hidden]="homeShow[2][1]<1">
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row class="smallBoxRow">
+                        <ion-col>
+                          <div class="location location-blue {{animateHome[2]}}" (click)="moveOut('blue',3)"
+                            *ngIf="showHome[2]" [hidden]="homeShow[2][2]<1">
+                          </div>
+                        </ion-col>
+                        <ion-col>
+                          <div class="location location-blue {{animateHome[2]}}" (click)="moveOut('blue',4)"
+                            *ngIf="showHome[2]" [hidden]="homeShow[2][3]<1">
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-dice">
+        <div class="dice-green">
+          <div [ngClass]="{'dice-wrapper':true,'indicate':checkIsUser()}">
+            <section class="container container-green">
+              <div id="cubeBlue" class="cube" (click)="rollDice()">
+                <div class="front" [ngStyle]="{'background-color': diceColor}">
+                  <span class="dot dot1"></span>
+                </div>
+                <div class="back" [ngStyle]="{'background-color': diceColor}">
+                  <span class="dot dot1"></span>
+                  <span class="dot dot2"></span>
+                </div>
+                <div class="right" [ngStyle]="{'background-color': diceColor}">
+                  <span class="dot dot1"></span>
+                  <span class="dot dot2"></span>
+                  <span class="dot dot3"></span>
+                </div>
+                <div class="left" [ngStyle]="{'background-color': diceColor}">
+                  <span class="dot dot1"></span>
+                  <span class="dot dot2"></span>
+                  <span class="dot dot3"></span>
+                  <span class="dot dot4"></span>
+                </div>
+                <div class="top" [ngStyle]="{'background-color': diceColor}">
+                  <span class="dot dot1"></span>
+                  <span class="dot dot2"></span>
+                  <span class="dot dot3"></span>
+                  <span class="dot dot4"></span>
+                  <span class="dot dot5"></span>
+                </div>
+                <div class="bottom" [ngStyle]="{'background-color': diceColor}">
+                  <span class="dot dot1"></span>
+                  <span class="dot dot2"></span>
+                  <span class="dot dot3"></span>
+                  <span class="dot dot4"></span>
+                  <span class="dot dot5"></span>
+                  <span class="dot dot6"></span>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="turnUserInfo">
+          <div class="turnLetter">Turn</div>
+          <div class="turnInfo">
+            <img src={{turnAvatar}} [ngStyle]="{'background-color': pieces[turn]}" />
+            <div>{{turnName}}</div>
+          </div>
+        </div>
+        <div class="chatHistory"></div>
+        <div class="bottomPart">
+          <div class="receivedContent"></div>
+          <div class="chatBtn">Chat</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contain" [hidden]="!userFinished">
+      <div class="greenBoard">
+        <div class="finishTitle">Game Finished</div>
+        <cdk-virtual-scroll-viewport itemSize="2" minBufferPx="500" maxBufferPx="500">
+          <div class="items" *cdkVirtualFor="let item of winArray;let i=index">
+            <div class="rankNo">{{i+1}}</div>
+            <div class="item"
+              [ngStyle]="{'background-image':'url(../../../assets/img/avatars/avatar_'+usersAvatar[turnArray.indexOf(item)]+'.png)'}">
+            </div>
+            <div class="itemName">{{players[turnArray.indexOf(item)]}}</div>
+            <div class="itemscore">{{scores[item]}}</div>
+          </div>
+        </cdk-virtual-scroll-viewport>
+      </div>
+    </div>
+
+  </div>
+
+
+  <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
+    <ng-template>
+      <div class="contain">
+        <div class="finishTitle">Do you want to leave?</div>
+        <cdk-virtual-scroll-viewport itemSize="2" minBufferPx="500" maxBufferPx="500">
+          <div class="items" *cdkVirtualFor="let item of turnArray;let i=index">
+            <div class="rankNo">{{i+1}}</div>
+            <div class="item"
+              [ngStyle]="{'background-image':'url(../../../assets/img/avatars/avatar_'+usersAvatar[i]+'.png)'}">
+            </div>
+            <div class="itemName">{{players[i]}}</div>
+            <div class="itemscore">{{homeWon[item]+scores[item]}}</div>
+          </div>
+        </cdk-virtual-scroll-viewport>
+        <div class="leaveBtn" (click)="leaveTable()">Leave</div>
+      </div>
+
+    </ng-template>
+  </ion-modal>
+
+</ion-content>

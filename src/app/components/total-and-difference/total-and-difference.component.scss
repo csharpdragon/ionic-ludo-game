@@ -1,0 +1,171 @@
+section {
+  padding: 1rem;
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  font-size: .8rem;
+  // background-color: rgba(0, 0, 0, .5);
+}
+
+
+ul {
+  padding-left: .6rem;
+  margin-top: unset;
+  list-style: none;
+}
+.streak-row {
+  align-items: center;
+}
+
+.streak {
+  // margin-top: -100px;
+  // margin-bottom: 15px;
+
+  &.red {
+    color: var(--ion-color-danger);
+    ion-row:nth-child(2) {
+      background-color: rgba(235, 68, 90, 0.6);
+    }
+  }
+  
+  &.blue {
+    color: var(--ion-color-primary);
+    ion-row:nth-child(2) {
+      background-color: rgb(56, 128, 255, 0.6);;
+    }
+  }
+
+  .title {
+    padding: 0 5px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+
+  .default{
+    border: 4px solid #d0d0d0;
+    margin-top: -1px;
+
+    ion-col {
+      font-size: 15px;
+      font-weight: 500;
+      color: white;
+      text-align: center;
+      min-height: 25px;
+  
+      &:not(:last-child) {
+        border-right: 4px solid #d0d0d0;
+      }
+    }
+  }
+
+
+  }
+
+  .blink_meB {
+    border: 4px solid rgba(235, 68, 90, 0.6);
+    margin-top: -1px;
+
+    ion-col {
+      font-size: 15px;
+      font-weight: 500;
+      color: white;
+      text-align: center;
+      min-height: 25px;
+  
+      &:not(:last-child) {
+        border-right: 4px solid rgba(235, 68, 90, 0.6);
+      }
+    }
+  }
+
+  .blink_meP {
+    margin-top: -1px;
+    border: 4px solid rgb(56, 128, 255, 0.6);
+
+    ion-col {
+      font-size: 15px;
+      font-weight: 500;
+      color: white;
+      text-align: center;
+      min-height: 25px;
+  
+      &:not(:last-child) {
+        border-right: 4px solid rgb(56, 128, 255, 0.6);
+      }
+    }
+  }
+
+  .blink_green{
+    margin-top: -1px;
+    border: 4px solid green;
+
+    ion-col {
+      font-size: 15px;
+      font-weight: 500;
+      color: white;
+      text-align: center;
+      min-height: 25px;
+  
+      &:not(:last-child) {
+        border-right: 4px solid green;
+      }
+    }
+  }
+
+  .blink_yellow{
+    margin-top: -1px;
+    border: 4px solid yellow;
+
+    ion-col {
+      font-size: 15px;
+      font-weight: 500;
+      color: white;
+      text-align: center;
+      min-height: 25px;
+  
+      &:not(:last-child) {
+        border-right: 4px solid yellow;
+      }
+    }
+  }
+
+  .blink_orange{
+    margin-top: -1px;
+    border: 4px solid orange;
+
+    ion-col {
+      font-size: 15px;
+      font-weight: 500;
+      color: white;
+      text-align: center;
+      min-height: 25px;
+  
+      &:not(:last-child) {
+        border-right: 4px solid orange;
+      }
+    }
+  }
+
+
+  .yellow{
+    color: yellow;
+}
+
+.green{
+    color: green;
+}
+
+.blue{
+   color: blue;
+}
+
+.red{
+    color: red;
+}
+
+.orange{
+    color: orange;
+}
+

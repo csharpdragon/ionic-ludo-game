@@ -1,0 +1,26 @@
+#rows {
+  overflow: auto;
+}
+ h2 {
+  color: white;
+  border: 1px solid gray;
+  margin: 0;
+}
+.head {
+  background-color: var(--ion-color-primary);
+}
+.tail {
+  background-color: var(--ion-color-danger);
+}
+
+.color1{
+  background-color: yellow;
+}
+
+.color2{
+  background-color: green;
+}
+
+.color3{
+  background-color: orange;
+}

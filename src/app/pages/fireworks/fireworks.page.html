@@ -1,0 +1,9 @@
+<canvas
+      inViewport
+      [inViewportOptions]="{ threshold: [0], partial: true }"
+      (inViewportAction)="setItemVisibility($event)"
+      *ngIf="visible || stopped"
+      [id]="canvasId"
+  >
+      <!-- <ng-content></ng-content> -->
+  </canvas>

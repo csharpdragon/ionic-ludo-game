@@ -1,0 +1,61 @@
+<div>
+<ion-grid id="scrollable_grid" style="overflow-x: auto;height: auto;" *ngIf="statsHandler.dummyArr.length>9">
+  <ion-row style="width: max-content;">
+    <ion-col>
+      70
+    </ion-col>
+    <ion-col *ngFor="let square of statsHandler.statsService.presentation['70'];"
+    [ngStyle]="{'background-color': (square.elm===p && p_c=='blue')?'blue':(square.elm===p && p_c=='red')?'red':(square.elm===p && p_c=='green')?'green':(square.elm===p && p_c=='orange')?'orange':(square.elm===p && p_c=='yellow')?'yellow':(square.elm===b && b_c=='blue')?'blue':(square.elm===b && b_c=='red')?'red':(square.elm===b && b_c=='green')?'green':(square.elm===b && b_c=='orange')?'orange':(square.elm===b && b_c=='yellow')?'yellow':'white'}">
+    {{square.statsIndex || square.elm}}
+    </ion-col>
+  </ion-row>
+  <ion-row style="width: max-content;">
+    <ion-col>
+      60
+    </ion-col>
+    <ion-col *ngFor="let square of statsHandler.statsService.presentation['60'];"
+    [ngStyle]="{'background-color': (square.elm===p && p_c=='blue')?'blue':(square.elm===p && p_c=='red')?'red':(square.elm===p && p_c=='green')?'green':(square.elm===p && p_c=='orange')?'orange':(square.elm===p && p_c=='yellow')?'yellow':(square.elm===b && b_c=='blue')?'blue':(square.elm===b && b_c=='red')?'red':(square.elm===b && b_c=='green')?'green':(square.elm===b && b_c=='orange')?'orange':(square.elm===b && b_c=='yellow')?'yellow':'white'}">
+    {{square.statsIndex || square.elm}}
+    </ion-col>
+  </ion-row>
+  <ion-row style="width: max-content;">
+    <ion-col>
+      50
+    </ion-col>
+    <ion-col *ngFor="let square of statsHandler.statsService.presentation['50'];"
+    [ngStyle]="{'background-color': (square.elm===p && p_c=='blue')?'blue':(square.elm===p && p_c=='red')?'red':(square.elm===p && p_c=='green')?'green':(square.elm===p && p_c=='orange')?'orange':(square.elm===p && p_c=='yellow')?'yellow':(square.elm===b && b_c=='blue')?'blue':(square.elm===b && b_c=='red')?'red':(square.elm===b && b_c=='green')?'green':(square.elm===b && b_c=='orange')?'orange':(square.elm===b && b_c=='yellow')?'yellow':'white'}">
+    {{square.statsIndex || square.elm}}
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-grid id="scrollable_grid" style="overflow-x: auto;height: auto;" *ngIf="statsHandler.oddEvenArr.length>9">
+  <ion-row style="width: max-content;">
+    <ion-col>
+      70
+    </ion-col>
+    <ion-col *ngFor="let square of statsHandler.statsService.oddEven['70'];"
+    [ngStyle]="{'background-color': (square.elm===0 && p_c=='blue')?'blue':(square.elm===0 && p_c=='red')?'red':(square.elm===0 && p_c=='green')?'green':(square.elm===0 && p_c=='orange')?'orange':(square.elm===0 && p_c=='yellow')?'yellow':(square.elm===1 && b_c=='blue')?'blue':(square.elm===1 && b_c=='red')?'red':(square.elm===1 && b_c=='green')?'green':(square.elm===1 && b_c=='orange')?'orange':(square.elm===1 && b_c=='yellow')?'yellow':'white'}">
+    {{square.elm===0?'E':'O'}}
+    </ion-col>
+  </ion-row>
+  <ion-row style="width: max-content;">
+    <ion-col>
+      60
+    </ion-col>
+    <ion-col *ngFor="let square of statsHandler.statsService.oddEven['60'];"
+    [ngStyle]="{'background-color': (square.elm===0 && p_c=='blue')?'blue':(square.elm===0 && p_c=='red')?'red':(square.elm===0 && p_c=='green')?'green':(square.elm===0 && p_c=='orange')?'orange':(square.elm===0 && p_c=='yellow')?'yellow':(square.elm===1 && b_c=='blue')?'blue':(square.elm===1 && b_c=='red')?'red':(square.elm===1 && b_c=='green')?'green':(square.elm===1 && b_c=='orange')?'orange':(square.elm===1 && b_c=='yellow')?'yellow':'white'}">
+    {{square.elm===0?'E':'O'}}
+    </ion-col>
+  </ion-row>
+  <ion-row style="width: max-content;">
+    <ion-col>
+      50
+    </ion-col>
+    <ion-col *ngFor="let square of statsHandler.statsService.oddEven['50'];"
+    [ngStyle]="{'background-color': (square.elm===0 && p_c=='blue')?'blue':(square.elm===0 && p_c=='red')?'red':(square.elm===0 && p_c=='green')?'green':(square.elm===0 && p_c=='orange')?'orange':(square.elm===0 && p_c=='yellow')?'yellow':(square.elm===1 && b_c=='blue')?'blue':(square.elm===1 && b_c=='red')?'red':(square.elm===1 && b_c=='green')?'green':(square.elm===1 && b_c=='orange')?'orange':(square.elm===1 && b_c=='yellow')?'yellow':'white'}">
+    {{square.elm===0?'E':'O'}}
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</div>

@@ -1,0 +1,283 @@
+@import "../../../theme/fonts.scss";
+
+ion-toolbar {
+  --background: linear-gradient(180deg ,#05796d ,#059f8f,#03776c);// #02766a;
+  --min-height: 50px !important;
+  border: 1px solid black;
+}
+
+ion-content{
+  --overflow: hidden;
+  --background:#0b9875;
+  .contents{
+
+    width: 90%;
+    margin-left: 5%;
+    height: 80%;
+    margin-top: 2vh;
+    background-color: #038474;
+    border: 1px solid white;
+    border-radius: 5px;
+    cdk-virtual-scroll-viewport{
+      background: url('../../../assets/img/mosaico.png');
+    background-size: 100% 100%;
+      width: 95%;
+      margin: auto;
+      margin-top: 2.5%;
+
+      height: 95%;
+      .items{
+
+        border: 1px solid #444444;
+        width: 100%;
+
+        display: inline-flex;
+        margin: auto;
+        text-align: center;
+        height: 8vh;
+        margin-bottom: 0.2vh;
+        font-weight: 800;
+        font-size: 3vh;
+        font-family: "BRLNSDB";
+        .scoreNo{
+          width: 10%;
+          margin-top: 5%;
+          color: #155909;
+        }
+        .item{
+          width: 20%;
+        }
+        .scoreName{
+          width: 45%;
+          margin-top: 5%;
+          color:#707070;
+          text-align: left;
+        }
+        .scoreText{
+          color: #444444;
+          width: 25%;
+          margin-top: 5%;
+          text-align: left;
+        }
+      }
+    }
+  }
+  .buttonpanel{
+    z-index: 1;
+    border: 1px solid white;
+    margin-top: 3vh;
+    border-radius: 10px;
+    width: 80%;
+    display: inline-flex;
+    margin-left: 10%;
+    background-color:#038474 ;
+    font-family: "BRLNSDB";
+    .monthlyBtn{
+      margin-top: 1vh;
+      margin-bottom: 1vh;
+      margin-left: 5%;
+      background: url("../../../assets/img/boton_verde_rect.png") no-repeat;
+      width: 40%;
+      height: 6vh;
+      background-size: 100% 100%;
+      text-align: center;
+      div{
+        padding: 1.5vh;
+      }
+    }
+    .scoreBtn{
+      margin-top: 1vh;
+      margin-bottom: 1vh;
+      background: url("../../../assets/img/boton_verde_rect_press.png") no-repeat;
+      width: 40%;
+      margin-left: 10%;
+      height: 6vh;
+      background-size: 100% 100%;
+      text-align: center;
+      div{
+        padding: 1.5vh;
+      }
+    }
+  }
+}
+
+
+.logo{
+  text-align:center;
+  max-width:350px;
+  margin-left:6% ;
+  display: inline-flex;
+  span{
+    font-family: "MAIANB";
+    margin-left: 5%;
+    letter-spacing: 0.1em;
+    text-shadow: 2px 2px 1px rgba($color: #000000, $alpha: 0.8);
+  }
+  img{
+    margin: auto;
+    max-height: 35px;
+  }
+  .ludo{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  font-size:40px;
+  color: #f0fbcf;
+  // -webkit-text-stroke: 1px #FFA500;
+  -webkit-text-stroke: 1px;
+  text-decoration-color: black;
+  font-weight:bold;
+  font-family: "BRLNSDB";
+  width: 250px;
+}
+
+}
+
+.content{
+  z-index: 1;
+  img{
+    opacity: 0.8;
+    margin-left: 15%;
+    width: 70%;
+    margin-top: 5%;
+  }
+  .wrapper{
+$primary-blue: #0080FF;
+$light-grey:#F3F6F9;
+$dark-grey:#303336;
+$red:#FF3149;
+$green:#00D074;
+$orange:#FFB000;
+$fatty:'Chewy';
+$fancy:"BRLNSDB";
+$modern:'Rubik';
+
+
+// font-family: 'Varela Round', sans-serif;
+margin-top:50px;
+
+.btn,
+p.btn {
+  background-color: rgba($color: #038474, $alpha: 1.0);
+  border: 1px solid white;
+//  opacity: 0.7;
+text-align: center;
+  display:block;
+  text-transform: none;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1em;
+  transition: all .35s cubic-bezier(.1, 0, 0, 1);
+  border-radius: 6px;
+  padding: 15px 20px;
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(0, 0, 0, 0);
+  margin: 17px auto;
+  width:80%;
+  max-width:300px;
+  font-family: $fancy;
+  letter-spacing: .1em;
+  border: 2px solid white;
+  text-shadow: 0 0 rgba(0, 0, 0, 0);
+}
+
+  }
+
+}
+
+ion-footer{
+  --min-height: 6vh !important;
+
+}
+.tabcontainer{
+  display: flex;
+  background: rgba($color: #000000, $alpha: 0);
+}
+.tab1,.tab2,.tab3{
+  background: linear-gradient(180deg,#03998a ,#025b52 );
+}
+.tab1 {
+  margin-left: -5%;
+  width: 44%;
+  height: 8vh;
+  margin-top: 2vh;
+  align-items: center;
+  border: 1px solid black;
+  img {
+    margin: auto;
+    height: 70%;
+    margin-left: 40%;
+    margin-top: 5%;
+  }
+}
+
+.tab2 {
+  margin-left: -1%;
+  margin-bottom: -10px;
+  width: 40%;
+  height: 10vh;
+  // margin-bottom: 0px;
+  z-index: 10;
+  border: 1px solid black;
+  border-radius: 2vh 2vh 0 0;
+  img {
+    margin: auto;
+    height: 70%;
+    margin-left: 35%;
+    margin-top: 7%;
+  }
+}
+.tab3 {
+  margin-left: -1%;
+  width: 40%;
+  height: 8vh;
+  margin-top: 2vh;
+
+  border: 1px solid black;
+  img {
+    margin: auto;
+    height: 70%;
+    margin-left: 35%;
+    margin-top: 5%;
+  }
+}
+
+.path1{
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: #0ab68b;
+}
+.pathContainer{
+  z-index: -1;
+}
+
+// .loadingProgress
+
+// ion-modal#example-modal {
+//   --border: 2px solid black;
+//   // --width: fit-content;
+//   --width: 60%;
+//   --height: fit-content;
+//   --border-radius: 1vh;
+//   --background: #027d71;
+//   .wrapper {
+//     color: white;
+//     border: 1px solid black;
+//     border-radius: 1vh;
+//     text-align: center;
+//     width: 100%;
+//     font-family:'BRLNSDB';
+//     .settingTitle {
+//       width: 100%;
+//       font-size: 4vh;
+//       margin-top: 1vh;
+//       text-shadow: 2px 2px 1px rgba($color: #000000, $alpha: 0.8);
+//     }
+//     .smalltext {
+//       width: 100%;
+//       font-size: 3vh;
+//       font-weight: 200;
+//       margin-top: 3%;
+//     }
+//   }
+// }

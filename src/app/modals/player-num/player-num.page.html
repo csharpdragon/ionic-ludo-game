@@ -1,0 +1,106 @@
+<!-- <ion-toolbar>
+  <div>
+    <div class="imagecontainer  ">
+    <ion-img href="#" routerLink="/main" src="../../../assets/img/"></ion-img>
+  </div>
+  </div>
+</ion-toolbar> -->
+
+<ion-content>
+  <div class="tcontainer">
+    <ion-icon class="close" name="close" (click)="dismiss()"></ion-icon>
+
+    <div class="playerNum" *ngIf="playerNum">
+      <div id="wrapper" class="wrapper">
+        <p href="#" (click)="selectPlayer(2)" class="btn green">Two Player</p>
+        <p href="#" (click)="selectPlayer(3)" class="btn orange">Three Player</p>
+        <p href="#" (click)="selectPlayer(4)" class="btn modern">Four Player</p>
+      </div>
+    </div>
+
+    <div class="playerName" *ngIf="playerName">
+      <div class="header">
+        <h1>Enter Players Name</h1>
+      </div>
+      <div *ngIf="playerN===2">
+        <div class="player1">
+          <input type="text" id="player1" (input)="getValue($event.target)" placeholder="Player 1" name=""
+            value="{{player1}}">
+          <img (click)="modalOpen(1)" src={{usersAvatarString[0]}}/>
+        </div>
+        <div class="player2">
+          <input type="text" placeholder="Player 2" id="player2" (input)="getValue($event.target)" name=""
+            value="{{player2}}">
+          <img (click)="modalOpen(2)" src={{usersAvatarString[1]}}/>
+        </div>
+
+      </div>
+
+      <div *ngIf="playerN===3">
+        <div class="player1">
+          <input type="text" placeholder="Player 1" id="player1" (input)="getValue($event.target)" name=""
+            value="Player1">
+          <img (click)="modalOpen(1)" src={{usersAvatarString[0]}}/>
+        </div>
+        <div class="player3">
+          <input type="text" placeholder="Player 2" id="player2" (input)="getValue($event.target)" name=""
+            value="Player2">
+          <img (click)="modalOpen(2)" src={{usersAvatarString[1]}}/>
+        </div>
+        <div class="player2">
+          <input type="text" placeholder="Player 3" id="player3" (input)="getValue($event.target)" name=""
+            value="Player3">
+          <img (click)="modalOpen(3)" src={{usersAvatarString[2]}}/>
+        </div>
+
+
+      </div>
+
+      <div *ngIf="playerN===4">
+        <div class="player1">
+            <input type="text" placeholder="Player 1" id="player1" (input)="getValue($event.target)" name=""
+              value="Player1">
+            <img (click)="modalOpen(1)" src={{usersAvatarString[0]}}/>
+
+        </div>
+        <div class="player3">
+          <input type="text" placeholder="Player 2" id="player2" (input)="getValue($event.target)" value="Player2">
+          <img (click)="modalOpen(2)"  src={{usersAvatarString[1]}}/>
+        </div>
+        <div class="player2">
+          <input type="text" placeholder="Player 3" id="player3" (input)="getValue($event.target)" value="Player3">
+          <img (click)="modalOpen(3)"  src={{usersAvatarString[2]}}/>
+        </div>
+
+        <div class="player4">
+          <input type="text" placeholder="Player 4" id="player4" (input)="getValue($event.target)" value="Player4">
+          <img (click)="modalOpen(4)"  src={{usersAvatarString[3]}}/>
+        </div>
+      </div>
+
+      <div class="submit">
+        <ion-button color="primary" (click)="startGame()">Start Game</ion-button>
+      </div>
+    </div>
+    <div class="clip">
+    </div>
+  </div>
+
+  <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
+    <ng-template>
+      <div class="modalwrapper">
+        <div class="title1">Choose avatar</div>
+
+          <cdk-virtual-scroll-viewport  itemSize="3" minBufferPx="500" maxBufferPx="500">
+              <!-- <div class="list"> -->
+                <div class="items" *cdkVirtualFor="let item of numSequence(186);let i=index">
+
+                    <div class="item" (click)="onAvatarTap(i)"  [ngStyle]="{'background':'url(../../../assets/img/avatars/avatar_'+i+'.png)','background-size':'100% 100%'}"></div>
+                    <img class="check" [hidden]="!avatarShow[i]" src="../../../assets/img/check.png"/>
+                  </div>
+          </cdk-virtual-scroll-viewport>
+          <div class="soundBtn" (click)="onAcceptBtnClick()">Accept</div>
+        </div>
+    </ng-template>
+  </ion-modal>
+</ion-content>

@@ -1,0 +1,50 @@
+<ion-card   style="margin: 8px;">
+  <ion-card-content style="padding: 0px;">
+    <ion-grid style="padding: 0px;">
+      <ion-row>
+        <ion-col size="6">
+          <ion-item style="--padding-top:0px ;--padding-bottom:0px;" lines="none">
+            <ion-label>
+              <ion-row>
+                <ion-col size="5">
+                  <span>TR: </span>
+                  <span>{{statsService.totalRoundsCount}}</span>
+                </ion-col>
+                <ion-col>
+                  <ion-input [(ngModel)]="title" style="border:1px dotted #d0d0d0;--padding-bottom: 0px;--padding-top: 0px;" type="text"></ion-input>
+                </ion-col>
+              </ion-row>
+            </ion-label>
+          </ion-item>    
+        </ion-col>
+        <ion-col  size="6">
+          <ion-row>
+            <ion-col>
+              <ion-button style="width: 50px;" (click)="presentAlert()" >
+                <ion-icon slot="start" name="trash-bin-outline" class="control-btns-btn-icon"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button  style="width: 90%;"  id="open-modal">T</ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button  style="width: 40px;" (click)="gotoSettings()" >SET</ion-button>
+            </ion-col>
+          </ion-row>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+  <ion-modal (click)="cancel()" style="z-index: 20002;
+  opacity: 0.7;" trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-content style="    --background: red;text-align: center;font-size: 50px;" class="ion-padding">
+        <div style="margin-top: 50%;">
+          <ion-label>{{title}}</ion-label>
+
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-card>
